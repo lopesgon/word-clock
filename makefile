@@ -1,21 +1,25 @@
-HOST=127.0.0.1
-PORT=9000
+PORT=5000
 
-install: create-venv
+install: create-venv versions
+	@echo #
+	@echo Installing project dependencies
 	. venv/bin/activate && \
 	pip install -e .
-	# pip install -r requirements.txt
 
 run-debug: install
+	@echo #
+	@echo Running debug mode
 	. venv/bin/activate && \
 	export FLASK_APP=src && \
 	export FLASK_ENV=development && \
-	flask run
+	flask run -p $(PORT)
 
 run: install
+	@echo # 
+	@echo Running
 	. venv/bin/activate && \
-	export FLASK_APP=src/word-clock && \
-	flask run
+	export FLASK_APP=src && \
+	flask run -p $(PORT)
 
 clean: clean-vm clean-pyc clean-build
 clean-vm:
@@ -29,10 +33,14 @@ clean-build:
 	find . -name '*.egg-info' -exec rm -rf {} +
 	find . -name '__pycache__' -exec rm -rf {} +
 
-versions:
-	python --version
-	pip --version
-
 create-venv:
-	pip3.8 install virtualenv;
-	python3.8 -m venv venv;
+	@echo #
+	@echo Installing and creating python virtual environment
+	pip3.9 install virtualenv;
+	python3.9 -m venv venv;
+
+versions:
+	@echo #
+	@echo Libaries versions
+	. venv/bin/activate && \
+	python --version && pip --version
