@@ -1,0 +1,55 @@
+letters: [
+  I,L,X,E,S,T,X,C,I,N,Q, # 10
+  X,S,X,X,Q,X,H,U,I,T,X, # 21 
+  D,E,U,X,D,U,N,E,X,X,T, # 32
+  O,P,X,S,I,X,A,E,X,X,R, # 43
+  U,T,D,I,X,X,X,T,U,X,O, # 54
+  Z,O,N,Z,E,X,X,X,R,F,I, # 65
+  E,M,I,D,I,H,E,U,R,E,S, # 76
+  M,O,I,N,S,X,L,E,X,E,T, # 87
+  X,X,Q,U,A,R,T,D,E,M,I, # 98
+  X,M,I,N,U,I,T,X,D,I,X, # 109
+  V,I,N,G,T,X,C,I,N,Q,X  # 120
+]
+
+words:
+  IL:
+    letters: [0,1]
+  EST:
+    letters: [3,4,5]
+  UNE:
+    letters: [27,28,29]
+  DEUX:
+    letters: [22,23,24,25]
+  TROIS:
+    letters: [32, 43, 54, 65, 76]
+  QUATRE:
+    letters: [15, 27, 39, 51, 63, 75]
+  CINQ:
+    letters: [7,8,9,10]
+  SIX:
+    letters: [36,37,38]
+  SEPT:
+    letters: [12,23,34,45]
+  HUIT:
+    letters: [17,18,19,20]
+  NEUF:
+    letters: [28, 40, 52, 64]
+  DIX:
+    letters: [46,47,48]
+  ONZE:
+    letters: []
+  DOUZE:
+    letters: []
+  MIDI:
+    letters: []
+  ET:
+    letters: []
+  LE:
+    letters: []
+  QUART:
+    letters: []
+  VINGT:
+    letters: []
+  CINQ1: 
+    letters: []

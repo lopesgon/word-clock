@@ -1,8 +1,10 @@
 from flask import abort
 from src import app
+from configurations.clock_config import loadProperties
 
 @app.route('/hello')
 def getHelloWorld():
+    loadProperties()
     return "Hello World!"
 
 @app.route('/abort')

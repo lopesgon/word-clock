@@ -25,8 +25,9 @@ setup(
 
     # See also if this library is required, as this doesn't build outside of a raspberry pi hardware
     #  https://github.com/jgarff/rpi_ws281x
-    install_requires=['wheel==0.36.*', 
+    install_requires=[  'wheel==0.36.*', 
                         'setuptools==51.0.*', 
+                        'pyyaml==5.3.1',
                         'flask==1.1.*', 
                         'adafruit-circuitpython-neopixel==6.0.*'],
     # Whats the purpose as Flask specifies it ?

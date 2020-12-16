@@ -6,7 +6,7 @@ install: create-venv versions
 	. venv/bin/activate && \
 	pip install -e .
 
-run-debug: install
+run-debug:
 	@echo #
 	@echo Running debug mode
 	. venv/bin/activate && \
@@ -20,6 +20,12 @@ run: install
 	. venv/bin/activate && \
 	export FLASK_APP=src && \
 	flask run -p $(PORT)
+
+build:
+	@echo Building setup.py...
+	. venv/bin/activate && \
+	python setup.py install
+	@echo ...building ended.
 
 clean: clean-vm clean-pyc clean-build
 clean-vm:
