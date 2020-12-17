@@ -10,7 +10,7 @@ run-debug:
 	@echo #
 	@echo Running debug mode
 	. venv/bin/activate && \
-	export FLASK_APP=src && \
+	export FLASK_APP=src/wordclock && \
 	export FLASK_ENV=development && \
 	flask run -p $(PORT)
 
@@ -18,7 +18,7 @@ run: install
 	@echo # 
 	@echo Running
 	. venv/bin/activate && \
-	export FLASK_APP=src && \
+	export FLASK_APP=src/wordclock && \
 	flask run -p $(PORT)
 
 build:
@@ -42,8 +42,8 @@ clean-build:
 create-venv:
 	@echo #
 	@echo Installing and creating python virtual environment
-	pip3.9 install virtualenv;
-	python3.9 -m venv venv;
+	pip3.9 install virtualenv
+	python3.9 -m venv venv
 
 versions:
 	@echo #

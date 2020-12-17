@@ -15,8 +15,8 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='word-clock', 
-    package_dir={'': 'src'}, 
-    packages=find_packages(where='src'),
+    package_dir={'': 'src/wordclock'}, 
+    packages=find_packages(where='src/wordclock'),
     version='1.0.0-SNAPSHOT',  
     description='A Word-Clock Project with some extra features',
     url='https://github.com/lopesgon/word-clock',

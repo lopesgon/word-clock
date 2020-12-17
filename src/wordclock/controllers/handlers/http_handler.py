@@ -1,5 +1,5 @@
 from flask import make_response
-from src import app
+from wordclock import app
 
 @app.errorhandler(404)
 def not_found(error):

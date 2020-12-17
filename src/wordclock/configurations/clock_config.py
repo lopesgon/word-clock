@@ -1,5 +1,5 @@
 import yaml, importlib
-from models.clock import Led, Word
+from wordclock.models.clock import Led, Word
 
 CLOCK_PROPS_FILE="src/resources/clock-properties.yml"
 
