@@ -1,0 +1,64 @@
+{
+  "environment": "local",
+  "clock": {
+    "hasPlural": true,
+    "interval": 5,
+    "pixelCount": 144,
+    "color": "#FFF",
+    "brightness": 1,
+    "letters": [
+      "I","L","X","E","S","T","X","C","I","N","Q",
+      "X","S","X","X","Q","X","H","U","I","T","X",  
+      "D","E","U","X","D","U","N","E","X","X","T",
+      "O","P","X","S","I","X","A","E","X","X","R",
+      "U","T","D","I","X","X","X","T","U","X","O",
+      "Z","O","N","Z","E","X","X","X","R","F","I",
+      "E","M","I","D","I","H","E","U","R","E","S",
+      "M","O","I","N","S","X","L","E","X","E","T",
+      "X","X","Q","U","A","R","T","D","E","M","I",
+      "X","M","I","N","U","I","T","X","D","I","X",
+      "V","I","N","G","T","X","C","I","N","Q","X"
+    ],
+
+    "words": {
+      "IS": [3,4,5],
+      "IT": [0,1],
+      "OCLOCK": [71,72,73,74,75],
+      "ONE": [27,28,29],
+      "TWO": [22,23,24,25],
+      "THREE": [32, 43, 54, 65, 76],
+      "FOUR": [15, 27, 39, 51, 63, 75],
+      "FIVE": [7,8,9,10],
+      "SIX": [36,37,38],
+      "SEPT": [12,23,34,45],
+      "HUIT": [17,18,19,20],
+      "NEUF": [28, 40, 52, 64],
+      "DIX": [46,47,48],
+      "ONZE": [56,57,58,59],
+      "DOUZE": [22,33,44,55,66],
+      "MIDI": [67,68,69,70],
+      "ET": [86,87],
+      "LE": [83,84],
+      "QUART": [90,91,92,93,94],
+      "DEMI": [95,96,97,98],
+      "VINGT": [110,111,112,113,114],
+      "CINQ1": [116,117,118,119]
+    },
+
+    "time": {
+      "DEFAULTS": ["IT", "IS", "OCLOCK"],
+      "ONE": ["ONE"],
+      "TWO": ["TWO"],
+      "THREE": ["THREE"],
+      "FOUR": ["FOUR"],
+      "FIVE": ["FIVE"],
+      "SIX": ["SIX"],
+      "HALF": ["DEMI"],
+      "QUARTER": ["QUART"],
+      "LUNCH": ["MIDI"],
+      "FIVE-TO-HALF": ["VINGT", "CINQ"],
+      "TWENTY-TO": ["VINGT"],
+      "FIVE-INC": ["CINQ1"]
+    }
+  }
+}
