@@ -6,12 +6,23 @@ https://github.com/pypa/sampleproject
 
 # Always prefer setuptools over distutils
 from setuptools import setup, find_packages
-import pathlib
+import pathlib, os
 
 here = pathlib.Path(__file__).parent.resolve()
 
 # Get the long description from the README file
 long_description = (here / 'README.md').read_text(encoding='utf-8')
+
+dependencies = [  
+    'wheel==0.36.*', 
+    'setuptools==51.0.*', 
+    'pyyaml==5.3.1',
+    'flask==1.1.*', 
+    'adafruit-circuitpython-neopixel==6.0.*',
+]
+
+if os.uname().nodename == 'raspberrypi':
+    dependencies.append( 'rpi_ws281x' )
 
 setup(
     name='word-clock', 
@@ -22,14 +33,7 @@ setup(
     url='https://github.com/lopesgon/word-clock',
     author='Frederic Lopes Goncalves Magalhaes',
     python_requires='>=3.7, <4',
-
-    # See also if this library is required, as this doesn't build outside of a raspberry pi hardware
-    #  https://github.com/jgarff/rpi_ws281x
-    install_requires=[  'wheel==0.36.*', 
-                        'setuptools==51.0.*', 
-                        'pyyaml==5.3.1',
-                        'flask==1.1.*', 
-                        'adafruit-circuitpython-neopixel==6.0.*'],
+    install_requires = dependencies,
     # Whats the purpose as Flask specifies it ?
     include_package_data=True,
 
