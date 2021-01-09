@@ -42,8 +42,8 @@ clean-build:
 create-venv:
 	@echo #
 	@echo Installing and creating python virtual environment
-	pip3.9 install virtualenv
-	python3.9 -m venv venv
+	pip3.7 install virtualenv
+	python3.7 -m venv venv
 
 versions:
 	@echo #

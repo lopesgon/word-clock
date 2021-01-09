@@ -21,7 +21,7 @@ setup(
     description='A Word-Clock Project with some extra features',
     url='https://github.com/lopesgon/word-clock',
     author='Frederic Lopes Goncalves Magalhaes',
-    python_requires='>=3.8, <4',
+    python_requires='>=3.7, <4',
 
     # See also if this library is required, as this doesn't build outside of a raspberry pi hardware
     #  https://github.com/jgarff/rpi_ws281x
