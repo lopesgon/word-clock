@@ -1,10 +1,12 @@
 PORT=5000
+PYTHON_VERSION=python3.9
+PIP_VERSION=pip3.9
 
 install: create-venv versions
 	@echo #
 	@echo Installing project dependencies
 	. venv/bin/activate && \
-	pip install -e .
+	$(PIP_VERSION) install -e .
 
 run-debug:
 	@echo #
@@ -14,17 +16,18 @@ run-debug:
 	export FLASK_ENV=development && \
 	flask run -p $(PORT)
 
-run: install
+run:
 	@echo # 
 	@echo Running
 	. venv/bin/activate && \
 	export FLASK_APP=src/wordclock && \
+	export FLASK_ENV=production && \
 	flask run -p $(PORT)
 
 build:
 	@echo Building setup.py...
 	. venv/bin/activate && \
-	python setup.py install
+	$(PYTHON_VERSION) setup.py install
 	@echo ...building ended.
 
 clean: clean-vm clean-pyc clean-build
@@ -42,11 +45,11 @@ clean-build:
 create-venv:
 	@echo #
 	@echo Installing and creating python virtual environment
-	pip3.7 install virtualenv
-	python3.7 -m venv venv
+	$(PIP_VERSION) install virtualenv
+	$(PYTHON_VERSION) -m venv venv
 
 versions:
 	@echo #
 	@echo Libaries versions
 	. venv/bin/activate && \
-	python --version && pip --version
+	$(PYTHON_VERSION) --version && $(PIP_VERSION) --version

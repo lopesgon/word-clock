@@ -1,11 +1,10 @@
 from flask import abort
 from wordclock import app
-from wordclock.configurations.clock_config import loadProperties
+from wordclock.configurations.configuration import getClockConfiguration
 
 @app.route('/hello')
 def getHelloWorld():
-    loadProperties()
-    return "Hello World!"
+    return "hello world"
 
 @app.route('/abort')
 def abortANotFoundError():

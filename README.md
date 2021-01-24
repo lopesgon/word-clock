@@ -1,7 +1,26 @@
 # Word Clock
 > DIY Wordclock - A Python Flask based project
 
-This is part of a diy project of building a wordclock that as also 
+This is part of a diy project of building a wordclock with NeoPixels.
+
+## Important about NeoPixels
+
+This project works with Adafruit dependencies. Thus you may use compatible leds.
+
+* “NeoPixel” is Adafruit’s brand for individually-addressable RGB color pixels and strips based on the WS2812, WS2811 and SK6812 LED/drivers, using a single-wire control protocol.
+
+* NeoPixels don’t just light up on their own; they require a microcontroller (such as Arduino) and some programming.
+
+## Important about electric power
+
+Do not forget electrical projects imply working with 220v power that can be letal !
+
+Each RGB Led requires approximately 5v 0.6a of power at full power (bright white).
+
+E.g. wiring & power supply 
+
+* 5v 10A Power supply
+* Soldered wires to power up RaspberryPi & Leds with a single power supply
 
 ## Installing / Getting started
 

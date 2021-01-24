@@ -19,6 +19,7 @@ dependencies = [
     'pyyaml==5.3.1',
     'flask==1.1.*', 
     'adafruit-circuitpython-neopixel==6.0.*',
+    'colorutils==0.3.0',
 ]
 
 if os.uname().nodename == 'raspberrypi':
