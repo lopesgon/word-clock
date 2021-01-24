@@ -18,11 +18,14 @@ def stop():
     clock_services.stop_clock()
     return "clock stopped"
 
-@app.route('/clock/color')
-def change_color():
+@app.route('/clock/update')
+def update_clock_state():
     color_arg = request.args.get('color')
-    if color_arg is None:
-        logging.warn("Tried color endpoint with required color argument")
-        abort(400, description="Changing leds color requires color url parameter")
-    clock_services.change_color(color_arg)
-    return 'clock color changed'
+    if color_arg is not None:
+        clock_services.change_color(color_arg)
+    
+    brightness_arg = request.args.get('brightness')
+    if brightness_arg is not None:
+        clock_services.change_brightness(brightness_arg)
+    
+    return 'clock state updated'

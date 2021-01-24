@@ -15,7 +15,8 @@ class Controller():
         logging.debug(self.name + ' - Change color to: ' + str(color))
 
     def change_brightness(self, brightness):
-        logging.debug(self.name + ' - Set brightmess to : ' + str(brightness))
+        value = abs(brightness / 100)
+        logging.debug(self.name + ' - Set brightness to : ' + str(value))
 
     def set_pixels(self, leds, colors=[]):
         if verbose:

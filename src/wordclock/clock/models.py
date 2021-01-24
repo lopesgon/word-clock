@@ -91,6 +91,10 @@ class Clock(threading.Thread):
         logging.debug('Clock changing color')
         self.config.color = color
         self.led_ctrl.change_color(color)
+    
+    def change_brightness(self, brightness):
+        logging.debug("Clock changing brightness")
+        self.led_ctrl.change_brightness(brightness)
 
     def refresh(self):
         logging.debug('Clock refreshing')

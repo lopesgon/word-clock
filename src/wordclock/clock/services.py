@@ -1,4 +1,5 @@
-import logging
+import logging, re
+from flask import abort
 from colorutils import Color
 from wordclock.clock.models import Clock
 
@@ -43,5 +44,21 @@ def stop_clock():
     clock.stop()
 
 def change_color(color_hex):
+    if color_hex == "":
+        logging.warn("Tried to change leds color without value")
+        abort(400, description="Changing leds color requires a not empty string value")
+    
+    match = re.search(r'^#(?:[0-9a-fA-F]{3}){1,2}$', color_hex)
+    if not(match):
+        logging.warn("Color input value [{}] isn't a valid hex color value".format(str(color_hex)))
+        abort(400, description="Color param is invalid. You must provide a valid hex color value")
     color = Color(hex=color_hex)
     clock.change_color(color.rgb)
+        
+def change_brightness(brightness):
+    if brightness.isnumeric() and int(brightness) >= 0 and int(brightness) <= 100:
+        clock.change_brightness(int(brightness))
+    else:
+        logging.warn("Tried to change brightness with invalid value [{}]".format(str(brightness)))
+        abort(400, description="Brightness must be a valid numeric value between 0 and 100")
+
