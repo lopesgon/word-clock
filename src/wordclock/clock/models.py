@@ -18,7 +18,6 @@ class Clock(threading.Thread):
     new_word_leds = []
     new_corner_leds = []
     
-    ticker=True
     led_ctrl=None
 
     def __init__(self):
@@ -107,13 +106,6 @@ class Clock(threading.Thread):
         Clock Tick Method
         """
         logging.debug("ticking...")
-        # temporary to see lights switching on/off by interval
-        if(self.ticker):
-            self.led_ctrl.turn_on()
-        else:
-            self.led_ctrl.turn_off()
-
-        self.ticker = not(self.ticker)
         self.generate_leds()
 
     def generate_leds(self):
