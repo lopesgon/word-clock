@@ -30,7 +30,7 @@ class Clock(threading.Thread):
             self.config.pixelCount, 
             Color(hex=self.config.color).rgb, 
             self.config.brightness)
-        self.clear()
+        self.generate_leds()
 
     def run(self):
         """
@@ -74,6 +74,7 @@ class Clock(threading.Thread):
         logging.debug('Clock resumed')
         self.stop_cond.acquire()
         self.stopped = False
+        self.led_ctrl.turn_on()
         # Notify so thread will wake after lock released
         self.stop_cond.notify()
         # Now release the lock
@@ -113,6 +114,7 @@ class Clock(threading.Thread):
         Method to generate word and corner leds
         """
         logging.debug("generating leds")
+        self.led_ctrl.set_pixels()
         time = datetime.datetime.now()
         # words = getWords()
         # text, self.new_word_leds, self.new_corner_leds = utils.time_to_text(words, time)

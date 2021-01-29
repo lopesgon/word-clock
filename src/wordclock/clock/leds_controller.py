@@ -34,9 +34,8 @@ class Controller():
                 self.set_pixel(led, colors[i])
         self.pixels.show()
 
-    def set_pixel(self, led, color = []):
-        if len(color) <= 0:
-            color = self.color
+    def set_pixel(self, led, color):
+        self.pixels[led] = color
         
     def show_pixels(self):
         self.pixels.show()
