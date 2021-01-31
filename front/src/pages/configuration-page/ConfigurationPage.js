@@ -2,13 +2,16 @@ import React, { useEffect } from 'react'
 import { func, string } from 'prop-types';
 
 import './ConfigurationPage.scss';
+import useSettingsContext from '../../contexts/SettingsContext';
 
-const ConfigurationPage = ({state, callback}) => {
+const ConfigurationPage = () => {
+    const {isDark, toggleDarkTheme} = useSettingsContext();
 
     useEffect(() => {
-        console.log("ConfPage useEffect");
-    });
-
+        console.log("on mount settings page");
+        return () => console.log("on destroy settings page")
+    }, [isDark]);
+    
     return (
         <div className="page">
             <div className="row">
@@ -17,7 +20,7 @@ const ConfigurationPage = ({state, callback}) => {
             <div className="row">
                 <p>Dark theme</p>
                 <label className="switch">
-                    <input type="checkbox" onChange={callback} checked={state} />
+                    <input type="checkbox" onChange={toggleDarkTheme} checked={isDark} />
                     <span className="slider"></span>
                 </label>
             </div>

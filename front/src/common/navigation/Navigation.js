@@ -1,18 +1,19 @@
 import React from 'react';
 import './Navigation.scss';
 import { Link } from 'react-router-dom';
-import WheelIcon from '../../icons/color-wheel.svg';
-import SettingsIcon from '../../icons/settings.svg';
-
+import route from './route';
 
 const Navigation = () => {
     return <nav id="navbar">
         <div className="icons">
-            <Link to="/">
-                <img src={WheelIcon} alt="Color wheel" />
+            <Link to={route.home}>
+                <img src="/icons/color-wheel.svg" alt="Color wheel" />
             </Link>
-            <Link to="/configuration">
-                <img src={SettingsIcon} alt="Settings" />
+            <Link to={route.snake}>
+                <img src="/icons/snake.svg" alt="Snake" />
+            </Link>
+            <Link to={route.settings}>
+                <img src="/icons/settings.svg" alt="Settings" />
             </Link>
         </div>
     </nav>

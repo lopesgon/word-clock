@@ -1,29 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import ThemeService from '../services/ThemeService';
 
 const useDarkMode = () => {
-  const [theme, setTheme] = useState(false);
-  const [componentMounted, setComponentMounted] = useState(false);
+  const [isDark, setIsDark] = useState(ThemeService.getTheme());
 
-  const setMode = mode => {
-    window.localStorage.setItem('theme', mode)
-    setTheme(mode);
-  }
-
-  const toggleTheme = () => {
-    setMode(!theme);
+  const toggleDarkTheme = () => {
+    ThemeService.setTheme(!isDark)
+    setIsDark(!isDark);
   };
-
-  useEffect(() => {
-    const mode = window.localStorage.getItem('theme');
-    if (mode) {
-      setTheme(mode === 'true');
-    } else {
-      setTheme(false);
-    }
-    setComponentMounted(true);
-  }, [theme]);
-
-  return [theme, toggleTheme, componentMounted];
+  
+  return [isDark, toggleDarkTheme];
 };
 
 export default useDarkMode;
