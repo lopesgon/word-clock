@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: $row-height;
+    z-index: 100;
+
+    div.icons {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        img {
+            height: 38px;
+        }
+    }
+}
