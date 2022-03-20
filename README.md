@@ -68,6 +68,30 @@ make run-debug
 
 Your application will be cleaned the started back again serving on port :5000.
 
+## Running with PyCharm Community Edition (CE)
+
+### Configure Python Interpreter
+
+If it wasn't automatically generated when project was first opened with PyCharm, you must configure a python interpreter to run this project.
+
+Go to Preferences (PyCharm -> Preferences...) and in Project -> Python interpreter, show all and add a new Virtualenv Environment with default settings.
+
+![PyCharm CE - Python interpreter](data/pycharm-python-interpreter.png)
+
+### Configure Flask
+
+Open the project and configure a new configuration, go to `Run -> Edit Configurations`
+
+Add a new Python configuration and set ``Script path`` with flask binary from project generated virtual environment [./venv/bin/flask](venv/bin/flask) 
+
+Add Environment variables:
+* FLASK_APP=main.py
+* FLASK_ENVIRONMENT=development <-- set dev to avoid double threaded clock (known issue due to flask debug mode)
+
+IMPORTANT - Working directory must be the sources folder ./app and not the ./venv/bin folder
+
+![PyCharm CE - Flask configuration](data/pycharm-run-configuration.png)
+
 ### Deploying / Publishing
 
 - Todo
