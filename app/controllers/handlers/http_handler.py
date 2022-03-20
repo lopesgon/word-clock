@@ -1,12 +1,14 @@
 from flask import make_response, jsonify
-from wordclock import app
+from main import app
+
 
 @app.errorhandler(404)
 def not_found(error):
-    data = { 'message': error.description, 'code': 'Not Found' }
+    data = {'message': error.description, 'code': 'Not Found'}
     response = make_response(jsonify(data), 404)
     response.headers['X-Something'] = 'A header value'
     return response
+
 
 @app.errorhandler(400)
 def bad_request(error):

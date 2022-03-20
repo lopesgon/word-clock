@@ -1,8 +1,5 @@
-###### Requirements without Version Specifiers ######`
-# Flask
-
-###### Requirements with Version Specifiers ######`
-# docopt == 0.6.1             # Version Matching. Must be version 0.6.1
-# keyring >= 4.1.1            # Minimum version 4.1.1
-# coverage != 3.5             # Version Exclusion. Anything except version 3.5
-# Mopidy-Dirble ~= 1.1        # Compatible release. Same as >= 1.1, == 1.*
+Flask==2.0.3
+wheel==0.37.1,
+setuptools==60.10.0
+adafruit-circuitpython-neopixel==6.2.4
+colorutils==0.3.0

@@ -1,7 +1,10 @@
-import logging, datetime, time, threading
+import datetime
+import logging
+import threading
+import time
 from colorutils import Color
+from configurations.configuration import isProduction, getClockConfiguration
 
-from wordclock.configurations.configuration import isProduction, getClockConfiguration
 # from transition import simple, matrix, fade, drop
 # import utils
 # from timing import timing
@@ -9,16 +12,17 @@ from wordclock.configurations.configuration import isProduction, getClockConfigu
 # import mock if environment is not prod/production
 if isProduction():
     logging.info("Running leds GPIO controller!")
-    from wordclock.clock import leds_controller as led_ct
+    from clock.leds_controller import Controller
 else:
     logging.info("Running mocked leds...")
-    from wordclock.mocks import led_controller_mock as led_ct
+    from clock.leds_controller_mock import Controller
+
 
 class Clock(threading.Thread):
     new_word_leds = []
     new_corner_leds = []
-    
-    led_ctrl=None
+
+    led_ctrl = None
 
     def __init__(self):
         threading.Thread.__init__(self)
@@ -26,10 +30,12 @@ class Clock(threading.Thread):
         self.end_thread = False
         self.config = getClockConfiguration()
         self.stop_cond = threading.Condition(threading.Lock())
-        self.led_ctrl = led_ct.Controller(
-            self.config.pixelCount, 
-            Color(hex=self.config.color).rgb, 
+        self.led_ctrl = Controller(
+            self.config.pixelCount,
+            Color(hex=self.config.color).rgb,
             self.config.brightness)
+        logging.debug("Clock init with default configuration")
+        logging.debug(self.led_ctrl)
         self.generate_leds()
 
     def run(self):
@@ -91,7 +97,7 @@ class Clock(threading.Thread):
         logging.debug('Clock changing color')
         self.config.color = color
         self.led_ctrl.change_color(color)
-    
+
     def change_brightness(self, brightness):
         logging.debug("Clock changing brightness")
         self.led_ctrl.change_brightness(brightness)
@@ -114,7 +120,7 @@ class Clock(threading.Thread):
         Method to generate word and corner leds
         """
         logging.debug("generating leds")
-        self.led_ctrl.set_pixels()
+        # self.led_ctrl.set_pixels()
         time = datetime.datetime.now()
         # words = getWords()
         # text, self.new_word_leds, self.new_corner_leds = utils.time_to_text(words, time)
