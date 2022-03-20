@@ -31,18 +31,18 @@ make install
 make run-debug
 ```
 
-Your server will start serving at http://localhost:5000 
+Your server will start serving at http://127.0.0.1:5000 
 
 ### Initial Configuration
 
 In order to install and run project, you must have these versions installed:
-- python3.9
-- pip3.9
+- python3.8
+- pip3.8
 - setuptools
 
 If needed, you can install global environment requirements by running ```pip install -r requirements.txt```
 
-Fill in with needed global dependencies [./requirments.txt](requirements.txt).
+Fill in with needed global dependencies [./requirements.txt](requirements.txt).
 
 ## Developing
 
